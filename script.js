@@ -17,3 +17,24 @@ function calculate(a, b, istruzioni) {
 
 calculate(10, 7, multiply);
 calculate(10, 7, subtract);
+
+
+/* Esercizio 2 
+Creare una funzione creaConvertitoreValuta che accetti 
+un tasso di cambio come argomento e restituisca una funzione interna. 
+La funzione interna accetta un importo come parametro e deve convertire 
+l'importo da una valuta all'altra ogni volta che viene chiamata. 
+*/
+
+const creaConvertitoreValuta = (tasso) => {
+    return (importo) => {
+        return tasso * importo
+    }
+}
+
+const euroInDollari = creaConvertitoreValuta(1.15);
+console.log(euroInDollari(20));
+
+// bonus
+const importo = parseFloat(prompt("Inserisci l'importo da convertire in dollari"));
+console.log(`L'importo è: ${euroInDollari(importo).toFixed(2)} $`);
